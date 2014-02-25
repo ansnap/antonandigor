@@ -10,6 +10,9 @@ body {
     margin: 0;
     padding-top: 51px;
     background: @background-color;
+    &.not-scrollable {
+        overflow: hidden;
+    }
 }
 body, input, textarea {
     color: @font-color;
@@ -466,6 +469,7 @@ ul {
         }
     }
     #work-gallery {
+        background: rgba(0, 0, 0, 0.5);
         .gallery-navigation {
             text-align: center;
             margin-top: 20px;

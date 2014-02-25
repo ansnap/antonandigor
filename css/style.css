@@ -6,6 +6,9 @@ body {
   padding-top: 51px;
   background: #f6f6f1;
 }
+body.not-scrollable {
+  overflow: hidden;
+}
 body,
 input,
 textarea {
@@ -470,6 +473,9 @@ ul {
   height: 180px;
   margin: -90px 0 0 -90px;
   background: rgba(0, 0, 0, 0.3) url('../img/magnifier.png') no-repeat 50% 50%;
+}
+#portfolio #work-gallery {
+  background: rgba(0, 0, 0, 0.5);
 }
 #portfolio #work-gallery .gallery-navigation {
   text-align: center;

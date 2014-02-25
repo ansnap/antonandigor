@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    // All modals
+    $('.modal').on('shown.bs.modal', function(e) {
+        $('body').addClass('not-scrollable');
+    });
+
+    $('.modal').on('hidden.bs.modal', function(e) {
+        $('body').removeClass('not-scrollable');
+    });
+
     // Header
     $('#header a, #presentation a').click(function() {
         $('html, body').animate({
