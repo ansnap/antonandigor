@@ -1,6 +1,7 @@
 $(document).ready(function() {
     // All modals
     $('.modal').on('shown.bs.modal', function(e) {
+        $(this).scrollTop(0);
         $('body').addClass('not-scrollable');
     });
 
@@ -9,7 +10,7 @@ $(document).ready(function() {
     });
 
     // Header
-    $('#header a, #presentation a').click(function() {
+    $('#header a, #presentation .content a').click(function() {
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top - 100
         }, 500);
@@ -26,8 +27,12 @@ $(document).ready(function() {
 
     // Portfolio
     $('#portfolio .work-thumbs li').click(function() {
+        $('#work-gallery img').attr('src', $(this).find('img').data('full-img'));
         $('#work-gallery').modal('toggle');
-        $('#portfolio-gallery').carousel($(this).index());
+    });
+
+    $('#work-gallery').on('hidden.bs.modal', function(e) {
+        $('#work-gallery img').attr('src', '');
     });
 
     // Rates

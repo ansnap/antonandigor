@@ -238,11 +238,11 @@ ul {
   font-size: 1.1em;
 }
 #header .service .mail {
-  background: url('../img/header-mail.png') no-repeat 0 50%;
+  background: url('../img/mail.png') no-repeat 0 50%;
 }
 #header .service .phone {
   margin-right: 30px;
-  background: url('../img/header-phone.png') no-repeat 0 50%;
+  background: url('../img/phone.png') no-repeat 0 50%;
 }
 #header .menu {
   clear: right;
@@ -476,32 +476,16 @@ ul {
 }
 #portfolio #work-gallery {
   background: rgba(0, 0, 0, 0.5);
-}
-#portfolio #work-gallery .gallery-navigation {
   text-align: center;
-  margin-top: 20px;
 }
-#portfolio #work-gallery .gallery-navigation a,
-#portfolio #work-gallery .gallery-navigation div {
-  display: inline-block;
+#portfolio #work-gallery .close {
   width: 34px;
   height: 30px;
-}
-#portfolio #work-gallery .gallery-navigation .left {
-  background: url('../img/gallery-left.png') no-repeat;
-}
-#portfolio #work-gallery .gallery-navigation .close {
+  margin: 10px auto;
   cursor: pointer;
   background: url('../img/gallery-close.png') no-repeat;
 }
-#portfolio #work-gallery .gallery-navigation .right {
-  background: url('../img/gallery-right.png') no-repeat;
-}
-#portfolio #work-gallery #portfolio-gallery {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-#portfolio #work-gallery #portfolio-gallery .item img {
+#portfolio #work-gallery img {
   max-width: 1000px;
 }
 #process {
@@ -622,23 +606,16 @@ ul {
 #process-expanded .content > div .finish .title {
   padding: 75px 0 0 130px;
 }
-#process-expanded .content > div .finish:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -57px;
-  width: 31px;
-  height: 28px;
-  background: url('../img/process/arrow-forward.png') no-repeat;
-}
 #process-expanded .content > div .step-2:before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -57px;
+  top: 15px;
+  left: -64px;
   width: 31px;
   height: 28px;
   background: url('../img/process/arrow-forward.png') no-repeat;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 #process-expanded .content > div .step-2:after {
   content: '';
@@ -652,13 +629,13 @@ ul {
 #process-expanded .content > div .step-3:after {
   content: '';
   position: absolute;
-  top: 0;
-  right: -57px;
+  top: 13px;
+  right: -60px;
   width: 31px;
   height: 28px;
   background: url('../img/process/arrow-forward.png') no-repeat;
-  -webkit-transform: rotate(270deg);
-  transform: rotate(270deg);
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
 }
 #process-expanded .content > div .step-5:after {
   content: '';
@@ -668,8 +645,8 @@ ul {
   width: 31px;
   height: 28px;
   background: url('../img/process/arrow-forward.png') no-repeat;
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
 }
 #process-expanded .content > div .step-6:before {
   content: '';
@@ -681,6 +658,20 @@ ul {
   background: url('../img/process/arrow-forward.png') no-repeat;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+#process-expanded .content > div .finish:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -51px;
+  width: 31px;
+  height: 28px;
+  background: url('../img/process/arrow-forward.png') no-repeat;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#process-expanded .content .info {
+  font-weight: bold;
 }
 #process-expanded .number {
   text-transform: uppercase;
@@ -983,7 +974,7 @@ ul {
 }
 #departments .people > div img {
   float: left;
-  margin: 0 15px 15px 0;
+  margin: 0 15px 30px 0;
 }
 #departments .people .name {
   font-size: 1.1em;
@@ -992,10 +983,39 @@ ul {
 #departments .people .responsible {
   margin-top: 7px;
 }
+#departments .people .responsible span {
+  display: inline-block;
+  width: 16px;
+  height: 1em;
+  vertical-align: text-bottom;
+}
+#departments .people .responsible span.ru {
+  background: url('../img/ru.png') no-repeat 0 50%;
+}
+#departments .people .responsible span.en {
+  background: url('../img/en.png') no-repeat 0 50%;
+}
+#departments .people .responsible span.de {
+  background: url('../img/de.png') no-repeat 0 50%;
+}
 #departments .people .contacts {
   margin-top: 7px;
   font-style: italic;
-  line-height: 1.3em;
+  line-height: 1.5em;
+}
+#departments .people .contacts li:before {
+  content: '\00a0';
+  display: inline-block;
+  width: 25px;
+  height: 1em;
+  vertical-align: text-bottom;
+  background-size: contain;
+}
+#departments .people .contacts .mail:before {
+  background: url('../img/mail.png') no-repeat 0 50%;
+}
+#departments .people .contacts .phone:before {
+  background: url('../img/phone.png') no-repeat 0 50%;
 }
 #questions {
   padding: 40px 0;

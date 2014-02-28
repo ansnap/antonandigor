@@ -249,11 +249,11 @@ ul {
             font-size: 1.1em;
         }
         .mail {
-            background: url('../img/header-mail.png') no-repeat 0 50%;
+            background: url('../img/mail.png') no-repeat 0 50%;
         }
         .phone {
             margin-right: 30px;
-            background: url('../img/header-phone.png') no-repeat 0 50%;
+            background: url('../img/phone.png') no-repeat 0 50%;
         }
     }
     .menu {
@@ -470,34 +470,18 @@ ul {
     }
     #work-gallery {
         background: rgba(0, 0, 0, 0.5);
-        .gallery-navigation {
-            text-align: center;
-            margin-top: 20px;
-            a, div {
-                display: inline-block;
-                width: 34px;
-                height: 30px;
-            }
-            .left {
-                background: url('../img/gallery-left.png') no-repeat;
-            }
-            .close {
-                cursor: pointer;
-                background: url('../img/gallery-close.png') no-repeat;
-            }
-            .right {
-                background: url('../img/gallery-right.png') no-repeat;
-            }
+        text-align: center;
+        .close {
+            width: 34px;
+            height: 30px;
+            margin: 10px auto;
+            cursor: pointer;
+            background: url('../img/gallery-close.png') no-repeat;
         }
-        #portfolio-gallery {
+        img {
             max-width: @content-width;
-            margin: 0 auto;
-            .item {
-                img {
-                    max-width: @content-width;
-                }
-            }
         }
+
     }
 }
 #process {
@@ -597,23 +581,16 @@ ul {
                 }
             }
             /* Arrows */
-            .finish:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -57px;
-                width: 31px;
-                height: 28px;
-                background: url('../img/process/arrow-forward.png') no-repeat;
-            }
             .step-2:before {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: -57px;
+                top: 15px;
+                left: -64px;
                 width: 31px;
                 height: 28px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
             }
             .step-2:after {
                 content: '';
@@ -627,13 +604,13 @@ ul {
             .step-3:after {
                 content: '';
                 position: absolute;
-                top: 0;
-                right: -57px;
+                top: 13px;
+                right: -60px;
                 width: 31px;
                 height: 28px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
-                -webkit-transform: rotate(270deg);
-                transform: rotate(270deg);
+                -webkit-transform: rotate(315deg);
+                transform: rotate(315deg);
             }
             .step-5:after {
                 content: '';
@@ -643,8 +620,8 @@ ul {
                 width: 31px;
                 height: 28px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
-                -webkit-transform: rotate(180deg);
-                transform: rotate(180deg);
+                -webkit-transform: rotate(225deg);
+                transform: rotate(225deg);
             }
             .step-6:before {
                 content: '';
@@ -657,6 +634,20 @@ ul {
                 -webkit-transform: rotate(180deg);
                 transform: rotate(180deg);
             }
+            .finish:before {
+                content: '';
+                position: absolute;
+                top: 10px;
+                left: -51px;
+                width: 31px;
+                height: 28px;
+                background: url('../img/process/arrow-forward.png') no-repeat;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        }
+        .info {
+            font-weight: bold;
         }
     }
     .number {
@@ -923,7 +914,7 @@ ul {
             }
             img {
                 float: left;
-                margin: 0 15px 15px 0;
+                margin: 0 15px 30px 0;
             }
         }
         .name {
@@ -932,11 +923,40 @@ ul {
         }
         .responsible {
             margin-top: 7px;
+            span {
+                display: inline-block;
+                width: 16px;
+                height: 1em;
+                vertical-align: text-bottom;
+                &.ru {
+                    background: url('../img/ru.png') no-repeat 0 50%;
+                }
+                &.en {
+                    background: url('../img/en.png') no-repeat 0 50%;
+                }
+                &.de {
+                    background: url('../img/de.png') no-repeat 0 50%;
+                }
+            }
         }
         .contacts {
             margin-top: 7px;
             font-style: italic;
-            line-height: 1.3em;
+            line-height: 1.5em;
+            li:before {
+                content: '\00a0';
+                display: inline-block;
+                width: 25px;
+                height: 1em;
+                vertical-align: text-bottom;
+                background-size: contain;
+            }
+            .mail:before {
+                background: url('../img/mail.png') no-repeat 0 50%;
+            }
+            .phone:before {
+                background: url('../img/phone.png') no-repeat 0 50%;
+            }
         }
     }
 }
