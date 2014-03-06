@@ -138,7 +138,7 @@ ul {
   bottom: 0;
   left: 0;
   z-index: 10000;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.5);
   overflow: auto;
   overflow-y: scroll;
 }
@@ -475,7 +475,6 @@ ul {
   background: rgba(0, 0, 0, 0.3) url('../img/magnifier.png') no-repeat 50% 50%;
 }
 #portfolio #work-gallery {
-  background: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 #portfolio #work-gallery .close {
@@ -692,6 +691,7 @@ ul {
   padding-top: 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid #97958f;
+  text-align: center;
 }
 #rates .offers {
   overflow: hidden;
@@ -701,7 +701,6 @@ ul {
   background: #ececec;
   background: -webkit-linear-gradient(#ececec, #f6f6f1 350px);
   background: linear-gradient(#ececec, #f6f6f1 350px);
-  text-align: center;
 }
 #rates .offers .light {
   width: 310px;
@@ -732,7 +731,6 @@ ul {
   font-size: 1.1em;
   font-weight: bold;
   margin: 30px 0;
-  text-align: center;
 }
 #rates .offers .options {
   margin: 0 10px 0 30px;
@@ -787,18 +785,50 @@ ul {
 #rates .offers .discount + .price {
   margin-top: 0;
 }
-#rates #order-window input,
-#rates #order-window textarea {
+#rates #custom-order {
+  display: inline-block;
+  padding: 7px 15px;
+  margin: 30px auto 0;
+  text-transform: uppercase;
+  color: #fff;
+  background: #8dcbd4;
+  background: -webkit-linear-gradient(#8dcbd4, #46bbd6);
+  background: linear-gradient(#8dcbd4, #46bbd6);
+  border-radius: 3px;
+  cursor: pointer;
+}
+#rates #custom-order:hover {
+  background: #45bbd6;
+}
+#rates #order-window .content {
+  background: #fff;
+  border-radius: 7px;
+  margin-top: 30px;
+}
+#rates #order-window .content .close {
+  float: right;
+  width: 34px;
+  height: 30px;
+  margin: 20px 20px;
+  background: url('../img/gallery-close.png') no-repeat;
+  cursor: pointer;
+}
+#rates #order-window .content p {
+  clear: both;
+  font-size: 1.1em;
+}
+#rates #order-window .content input,
+#rates #order-window .content textarea {
   display: inline-block;
   margin: 7px 0 0 0;
   padding: 7px;
   border: 1px solid #47aabf;
   width: 360px;
 }
-#rates #order-window textarea {
+#rates #order-window .content textarea {
   height: 60px;
 }
-#rates #order-window .contact-btn {
+#rates #order-window .content .contact-btn {
   display: inline-block;
   margin-top: 7px;
   padding: 7px 15px;
@@ -808,17 +838,17 @@ ul {
   background: linear-gradient(#ffde16, #fec720);
   cursor: pointer;
 }
-#rates #order-window .contact-btn:hover {
+#rates #order-window .content .contact-btn:hover {
   background: #ffde16;
 }
-#rates #order-window form {
+#rates #order-window .content form {
   float: right;
   position: relative;
   clear: both;
   width: 50%;
-  padding: 20% 0;
+  margin: 30px 0 100px;
 }
-#rates #order-window form:before {
+#rates #order-window .content form:before {
   content: '';
   position: absolute;
   left: -100%;
@@ -827,18 +857,25 @@ ul {
   height: 100%;
   background: url('../img/logo-order.png') no-repeat 50% 50%;
 }
-#rates #order-window input,
-#rates #order-window textarea,
-#rates #order-window .order {
+#rates #order-window .content form .order-details {
+  display: none;
+  width: 360px;
+  font-size: 0.9em;
+  color: #777;
+  margin: 7px 0 0 0;
+  text-align: left;
+}
+#rates #order-window .content input,
+#rates #order-window .content textarea,
+#rates #order-window .content .order,
+#rates #order-window .content .order-details {
   clear: both;
   float: left;
 }
-#rates #order-window .close {
-  width: 34px;
-  height: 30px;
-  margin: 30px auto 0;
-  background: url('../img/gallery-close.png') no-repeat;
-  cursor: pointer;
+#rates #order-window .content:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 #rates-expanded {
   position: relative;
@@ -991,6 +1028,9 @@ ul {
 }
 #departments .people .responsible span.ru {
   background: url('../img/ru.png') no-repeat 0 50%;
+}
+#departments .people .responsible span.ua {
+  background: url('../img/ua.png') no-repeat 0 50%;
 }
 #departments .people .responsible span.en {
   background: url('../img/en.png') no-repeat 0 50%;

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // All modals
+    /* All modals */
     $('.modal').on('shown.bs.modal', function(e) {
         $(this).scrollTop(0);
         $('body').addClass('not-scrollable');
@@ -9,7 +9,7 @@ $(document).ready(function() {
         $('body').removeClass('not-scrollable');
     });
 
-    // Header
+    /* Header */
     $('#header a, #presentation .content a').click(function() {
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top - 100
@@ -25,7 +25,7 @@ $(document).ready(function() {
         }
     });
 
-    // Portfolio
+    /* Portfolio */
     $('#portfolio .work-thumbs li').click(function() {
         $('#work-gallery img').attr('src', $(this).find('img').data('full-img'));
         $('#work-gallery').modal('toggle');
@@ -35,7 +35,9 @@ $(document).ready(function() {
         $('#work-gallery img').attr('src', '');
     });
 
-    // Rates
+    /* Rates */
+
+    // Total sum
     function recalculate() {
         var sum = 0;
 
@@ -46,18 +48,10 @@ $(document).ready(function() {
         $('#rates-expanded .total-cost .sum').text(sum);
     }
 
-    $('#rates-expanded input').change(function() {
-        recalculate();
-    });
-
-    $('#rates-expanded').collapse({
-        toggle: false
-    });
-    $('#rates .details').click(function() {
-        $('#rates-expanded').collapse('show');
-
+    // Check inputs
+    function checkOptions(element) {
         $('#rates-expanded input').prop('checked', false);
-        var options = $(this).data('incl').split(',');
+        var options = $(element).data('incl').split(',');
         for (var i in options) {
             var o = options[i];
             if (o.indexOf('|') === -1) {
@@ -67,13 +61,48 @@ $(document).ready(function() {
             }
         }
         recalculate();
+    }
+
+    $('#rates-expanded input').change(function() {
+        recalculate();
+    });
+
+    $('#rates-expanded').collapse({
+        toggle: false
+    });
+
+    $('#rates .details, #presentation .custom').click(function() {
+        $('#rates-expanded').collapse('show');
+        checkOptions($(this));
+    });
+
+    $('#rates .order').click(function() {
+        checkOptions($(this).siblings('.details'));
     });
 
     $('#rates .order, #rates-expanded .order').click(function() {
         $('#rates #order-window').modal();
     });
 
-    // Questions
+    // Include selected information to order
+    $('#rates #order-window').on('show.bs.modal', function(e) {
+        var options_str = '';
+        $('#rates-expanded input').each(function() {
+            if ($(this).prop('checked') === true) {
+                options_str += $(this).siblings('span').text() + ' | ';
+            }
+        });
+        if (options_str) {
+            $('#order-window .order-details').show();
+            $('#order-window [name="options"]').val(options_str);
+        }
+    });
+
+    $('#rates #order-window').on('hide.bs.modal', function(e) {
+        $('#order-window .order-details').hide();
+    });
+
+    /* Questions */
     $('#questions').collapse({
         toggle: false
     });
