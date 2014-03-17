@@ -9,6 +9,65 @@ $(document).ready(function() {
         $('body').removeClass('not-scrollable');
     });
 
+    /* All forms */
+    $('#order-window .order, #contact .contact-btn').click(function() {
+        var button = $(this);
+
+        if ($(button).hasClass('sending')) {
+            return false;
+        }
+
+
+        // Check if form filled
+        var filled = true;
+        $(button).siblings('.form-errors').text('');
+        $(button).parents('form').find('input, textarea').each(function() {
+            if ($(this).prop('required') === true && $(this).val() === '') {
+                filled = false;
+                return false;
+            }
+        });
+        if (!filled) {
+            $(button).siblings('.form-errors').append('Заполните пожалуйста поля, обозначенные звездочками');
+            return false;
+        }
+
+        // Send form with AJAX
+        var error = false;
+        $(button).addClass('sending');
+        var loc = window.location.pathname;
+        var base_url = loc.indexOf('index.html') === -1 && loc.indexOf('/') === -1 ? loc : loc.substring(0, loc.lastIndexOf('/'));
+
+        $.ajax({
+            url: base_url + '/send-form.php',
+            data: $(button).parents('form').serialize(),
+            type: 'POST',
+            success: function(msg) {
+                if (msg === 'sent') {
+                    if ($(button).parents('#order-window').length) {
+                        $(button).parents('.content').children().hide();
+                        $(button).parents('.content').find('.form-success, .close').show();
+
+                    } else if ($(button).parents('#contact').length) {
+                        $(button).parents('form').children().hide();
+                        $(button).siblings('.form-success').show();
+                    }
+                } else {
+                    error = true;
+                }
+            },
+            error: function(msg) {
+                error = true;
+            },
+            complete: function(msg) {
+                if (error) {
+                    $(button).siblings('.form-errors').append('Произошла ошибка, повторите пожалуйста запрос');
+                }
+                $(button).removeClass('sending');
+            }
+        });
+    });
+
     /* Header */
     $('#header a, #presentation .content a').click(function() {
         $('html, body').animate({
@@ -76,7 +135,7 @@ $(document).ready(function() {
         checkOptions($(this));
     });
 
-    $('#rates .order').click(function() {
+    $('#rates .details + .order').click(function() {
         checkOptions($(this).siblings('.details'));
     });
 

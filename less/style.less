@@ -46,6 +46,11 @@ ul {
     background: -webkit-linear-gradient(@color1, @color2);
     background: linear-gradient(@color1, @color2);
 }
+.transform (@type) {
+    -webkit-transform: @type;
+    -ms-transform: @type;
+    transform: @type;
+}
 .contact-form {
     input, textarea {
         display: inline-block;
@@ -57,6 +62,14 @@ ul {
     textarea {
         height: 60px;
     }
+    .form-errors {
+        color: #F9F2F4;
+        font-size: 0.9em;
+    }
+    .form-success {
+        text-align: left;
+        display: none;
+    }
     .contact-btn {
         display: inline-block;
         margin-top: 7px;
@@ -67,6 +80,10 @@ ul {
         &:hover {
             background: #ffde16;
         }
+    }
+    .sending, .sending:hover {
+        background: #ccc;
+        cursor: default;
     }
 }
 .collapsible {
@@ -297,55 +314,58 @@ ul {
 }
 #founders {
     background: #45bbd6;
-    padding: 18px 0;
+    padding: 18px 0 0;
     overflow: hidden;
     .content > div {
         float: left;
-        min-height: 140px;
+        min-height: 176px;
+        background-position: 0 100%;
     }
     .anton {
-        width: 101px;
+        width: 168px;
         background: url('../img/founders/anton.jpg') no-repeat;
     }
     .igor {
-        width: 108px;
+        width: 181px;
         background: url('../img/founders/igor.jpg') no-repeat;
     }
     .dialog {
-        width: (@content-width - 101 - 108);
-        overflow: hidden;
+        width: (@content-width - 168 - 181);
+        position: relative;
         > div {
-            position: relative;
-            width: 600px;
+            width: (@content-width - 168 - 181) / 2 - 40;
+            min-height: 130px;
             background: @background-color;
             font-size: 0.9em;
-            padding: 15px 20px;
+            padding: 10px;
             box-shadow: 1px 1px 3px 0px #777;
-            &:before {
+            &:before{
                 content: '';
                 position: absolute;
-                width: 80px;
-                height: 15px;
+                top: 90px;
+                width: 40px;
+                height: 40px;
+                background: @background-color;
+                box-shadow: 1px 1px 3px 0px #777;
+                z-index: 1;
             }
         }
-        .top {
+        .anton-speech {
             float: left;
-            margin-left: 20px;
+            margin-left: 10px;
             &:before {
-                left: 30px;
-                bottom: -15px;
-                background: url('../img/founders/dialog-top.png') no-repeat;
+                left: 6px;
+                clip: rect(-10px, 9px, 38px, -10px);
+                .transform(skew(15deg, 30deg));
             }
         }
-        .bottom {
-            clear: both;
+        .igor-speech {
             float: right;
-            margin-right: 20px;
-            margin-top: 20px;
+            margin-right: 10px;
             &:before {
-                right: 30px;
-                top: -15px;
-                background: url('../img/founders/dialog-bottom.png') no-repeat;
+                right: 6px;
+                clip: rect(-10px, 50px, 38px, 30px);
+                .transform(skew(165deg, 150deg));
             }
         }
     }
@@ -588,8 +608,7 @@ ul {
                 width: 31px;
                 height: 28px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
-                -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
+                .transform(rotate(45deg));
             }
             .step-2:after {
                 content: '';
@@ -608,8 +627,7 @@ ul {
                 width: 31px;
                 height: 28px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
-                -webkit-transform: rotate(315deg);
-                transform: rotate(315deg);
+                .transform(rotate(315deg));
             }
             .step-5:after {
                 content: '';
@@ -619,8 +637,7 @@ ul {
                 width: 31px;
                 height: 28px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
-                -webkit-transform: rotate(225deg);
-                transform: rotate(225deg);
+                .transform(rotate(225deg));
             }
             .step-6:before {
                 content: '';
@@ -630,8 +647,7 @@ ul {
                 width: 31px;
                 height: 18px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
-                -webkit-transform: rotate(180deg);
-                transform: rotate(180deg);
+                .transform(rotate(180deg));
             }
             .finish:before {
                 content: '';
@@ -641,8 +657,7 @@ ul {
                 width: 31px;
                 height: 28px;
                 background: url('../img/process/arrow-forward.png') no-repeat;
-                -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
+                .transform(rotate(45deg));
             }
         }
         .info {
@@ -789,6 +804,11 @@ ul {
             p {
                 clear: both;
                 font-size: 1.1em;
+                &.form-success {
+                    width: 90%;
+                    margin: 0 auto;
+                    padding-bottom: 2em;
+                }
             }
             .contact-form;
             form {
@@ -806,13 +826,17 @@ ul {
                     height: 100%;
                     background: url('../img/logo-order.png') no-repeat 50% 50%;
                 }
-                .order-details {
+                .order-details{
                     display: none;
-                    width: 360px;
-                    font-size: 0.9em;
                     color: #777;
                     margin: 7px 0 0 0;
+                    font-size: 0.9em;
+                    width: 360px;
                     text-align: left;
+                }
+                .form-errors {
+                    text-align: left;
+                    color: #D44950;
                 }
             }
             input, textarea, .order, .order-details {

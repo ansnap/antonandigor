@@ -38,8 +38,8 @@
             <div class="content">
                 <div class="anton"></div>
                 <div class="dialog">
-                    <div class="top">Качественно выполненная работа приносит радость как заказчику, так и исполнителю. Уважение к клиентам и требовательность к себе, как исполнителям работы, позволяют нам создавать проекты высокого уровня.<br><br><i>Антон, основатель компании</i></div>
-                    <div class="bottom">Помогая людям раскрыть свою душу, реализовать мечты, делая их успешными и счастливыми, понимаешь - ты пришел в этот мир не зря. Мы здесь, чтобы принести Вам пользу.<br><br><i>Игорь, основатель компании</i></div>
+                    <div class="anton-speech">Качественно выполненная работа приносит радость как заказчику, так и исполнителю. Уважение к клиентам и требовательность к себе, как исполнителям работы, позволяют нам создавать проекты высокого уровня.<br><br><i>Антон, основатель компании</i></div>
+                    <div class="igor-speech">Помогая людям раскрыть свою душу, реализовать мечты, делая их успешными и счастливыми, понимаешь - ты пришел в этот мир не зря. Мы здесь, чтобы принести Вам пользу.<br><br><i>Игорь, основатель компании</i></div>
                 </div>
                 <div class="igor"></div>
             </div>
@@ -58,7 +58,7 @@
                 <div class="slide-2 item">
                     <div class="text">
                         <p>
-                            <b>Мы сделаем Ваш сайт на нужном языке!</b><br>
+                            <b>Переведем Ваш сайт на иностранный язык!</b><br>
                             Вы выйдете на международный уровень и<br>
                             сможете продвигать свои товары и услуги<br>
                             за границей
@@ -210,16 +210,18 @@
                 </div>
                 <div id="custom-order" data-toggle="collapse" data-target="#rates-expanded">Свой выбор</div>
             </div>
-            <div id="order-window" class="modal">
+            <div id="order-window" class="modal" tabindex="-1">
                 <div class="content">
                     <div class="close" data-dismiss="modal"></div>
+                    <p class="form-success">Ваш заказ успешно принят. В течение суток мы свяжемся с Вами для обсуждения подробностей.</p>
                     <p>
                         Введите пожалуйста контактную информацию,<br>
                         чтобы мы могли связаться с Вами для обсуждения подробностей заказа
                     </p>
                     <form>
-                        <input type="text" name="name" placeholder="Имя">
-                        <input type="text" name="email" placeholder="Email">
+                        <div class="form-errors"></div>
+                        <input type="text" name="name" placeholder="Имя *" required>
+                        <input type="text" name="email" placeholder="Email *" required>
                         <input type="text" name="phone" placeholder="Телефон">
                         <textarea name="message" placeholder="Комментарий"></textarea>
                         <input type="hidden" name="options">
@@ -506,10 +508,12 @@
                         </div>
                     </div>
                     <form class="right">
-                        <input type="text" name="name" placeholder="Имя">
-                        <input type="text" name="email" placeholder="Email">
+                        <div class="form-success">Ваше сообщение успешно отправлено. В течение суток мы свяжемся с Вами.</div>
+                        <div class="form-errors"></div>
+                        <input type="text" name="name" placeholder="Имя *" required>
+                        <input type="text" name="email" placeholder="Email *" required>
                         <input type="text" name="phone" placeholder="Телефон">
-                        <textarea name="message" placeholder="Сообщение"></textarea>
+                        <textarea name="message" placeholder="Сообщение *" required></textarea>
                         <div class="contact-btn">Отправить</div>
                     </form>
                 </div>

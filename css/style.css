@@ -36,6 +36,14 @@ ul {
 .contact-form textarea {
   height: 60px;
 }
+.contact-form .form-errors {
+  color: #F9F2F4;
+  font-size: 0.9em;
+}
+.contact-form .form-success {
+  text-align: left;
+  display: none;
+}
 .contact-form .contact-btn {
   display: inline-block;
   margin-top: 7px;
@@ -48,6 +56,11 @@ ul {
 }
 .contact-form .contact-btn:hover {
   background: #ffde16;
+}
+.contact-form .sending,
+.contact-form .sending:hover {
+  background: #ccc;
+  cursor: default;
 }
 .collapsible {
   position: relative;
@@ -284,58 +297,65 @@ ul {
 }
 #founders {
   background: #45bbd6;
-  padding: 18px 0;
+  padding: 18px 0 0;
   overflow: hidden;
 }
 #founders .content > div {
   float: left;
-  min-height: 140px;
+  min-height: 176px;
+  background-position: 0 100%;
 }
 #founders .anton {
-  width: 101px;
+  width: 168px;
   background: url('../img/founders/anton.jpg') no-repeat;
 }
 #founders .igor {
-  width: 108px;
+  width: 181px;
   background: url('../img/founders/igor.jpg') no-repeat;
 }
 #founders .dialog {
-  width: 791px;
-  overflow: hidden;
+  width: 651px;
+  position: relative;
 }
 #founders .dialog > div {
-  position: relative;
-  width: 600px;
+  width: 285.5px;
+  min-height: 130px;
   background: #f6f6f1;
   font-size: 0.9em;
-  padding: 15px 20px;
+  padding: 10px;
   box-shadow: 1px 1px 3px 0px #777;
 }
 #founders .dialog > div:before {
   content: '';
   position: absolute;
-  width: 80px;
-  height: 15px;
+  top: 90px;
+  width: 40px;
+  height: 40px;
+  background: #f6f6f1;
+  box-shadow: 1px 1px 3px 0px #777;
+  z-index: 1;
 }
-#founders .dialog .top {
+#founders .dialog .anton-speech {
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
-#founders .dialog .top:before {
-  left: 30px;
-  bottom: -15px;
-  background: url('../img/founders/dialog-top.png') no-repeat;
+#founders .dialog .anton-speech:before {
+  left: 6px;
+  clip: rect(-10px, 9px, 38px, -10px);
+  -webkit-transform: skew(15deg, 30deg);
+  -ms-transform: skew(15deg, 30deg);
+  transform: skew(15deg, 30deg);
 }
-#founders .dialog .bottom {
-  clear: both;
+#founders .dialog .igor-speech {
   float: right;
-  margin-right: 20px;
-  margin-top: 20px;
+  margin-right: 10px;
 }
-#founders .dialog .bottom:before {
-  right: 30px;
-  top: -15px;
-  background: url('../img/founders/dialog-bottom.png') no-repeat;
+#founders .dialog .igor-speech:before {
+  right: 6px;
+  clip: rect(-10px, 50px, 38px, 30px);
+  -webkit-transform: skew(165deg, 150deg);
+  -ms-transform: skew(165deg, 150deg);
+  transform: skew(165deg, 150deg);
 }
 #presentation {
   position: relative;
@@ -614,6 +634,7 @@ ul {
   height: 28px;
   background: url('../img/process/arrow-forward.png') no-repeat;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 #process-expanded .content > div .step-2:after {
@@ -634,6 +655,7 @@ ul {
   height: 28px;
   background: url('../img/process/arrow-forward.png') no-repeat;
   -webkit-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
   transform: rotate(315deg);
 }
 #process-expanded .content > div .step-5:after {
@@ -645,6 +667,7 @@ ul {
   height: 28px;
   background: url('../img/process/arrow-forward.png') no-repeat;
   -webkit-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
   transform: rotate(225deg);
 }
 #process-expanded .content > div .step-6:before {
@@ -656,6 +679,7 @@ ul {
   height: 18px;
   background: url('../img/process/arrow-forward.png') no-repeat;
   -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 #process-expanded .content > div .finish:before {
@@ -667,6 +691,7 @@ ul {
   height: 28px;
   background: url('../img/process/arrow-forward.png') no-repeat;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 #process-expanded .content .info {
@@ -817,6 +842,11 @@ ul {
   clear: both;
   font-size: 1.1em;
 }
+#rates #order-window .content p.form-success {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
 #rates #order-window .content input,
 #rates #order-window .content textarea {
   display: inline-block;
@@ -827,6 +857,14 @@ ul {
 }
 #rates #order-window .content textarea {
   height: 60px;
+}
+#rates #order-window .content .form-errors {
+  color: #F9F2F4;
+  font-size: 0.9em;
+}
+#rates #order-window .content .form-success {
+  text-align: left;
+  display: none;
 }
 #rates #order-window .content .contact-btn {
   display: inline-block;
@@ -840,6 +878,11 @@ ul {
 }
 #rates #order-window .content .contact-btn:hover {
   background: #ffde16;
+}
+#rates #order-window .content .sending,
+#rates #order-window .content .sending:hover {
+  background: #ccc;
+  cursor: default;
 }
 #rates #order-window .content form {
   float: right;
@@ -859,11 +902,15 @@ ul {
 }
 #rates #order-window .content form .order-details {
   display: none;
-  width: 360px;
-  font-size: 0.9em;
   color: #777;
   margin: 7px 0 0 0;
+  font-size: 0.9em;
+  width: 360px;
   text-align: left;
+}
+#rates #order-window .content form .form-errors {
+  text-align: left;
+  color: #D44950;
 }
 #rates #order-window .content input,
 #rates #order-window .content textarea,
@@ -1192,6 +1239,14 @@ ul {
 #contact .columns .right textarea {
   height: 60px;
 }
+#contact .columns .right .form-errors {
+  color: #F9F2F4;
+  font-size: 0.9em;
+}
+#contact .columns .right .form-success {
+  text-align: left;
+  display: none;
+}
 #contact .columns .right .contact-btn {
   display: inline-block;
   margin-top: 7px;
@@ -1204,6 +1259,11 @@ ul {
 }
 #contact .columns .right .contact-btn:hover {
   background: #ffde16;
+}
+#contact .columns .right .sending,
+#contact .columns .right .sending:hover {
+  background: #ccc;
+  cursor: default;
 }
 #footer {
   height: 50px;
