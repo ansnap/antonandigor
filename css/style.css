@@ -741,15 +741,21 @@ ul {
   background: url('../img/rates/hit-sales.png') no-repeat;
 }
 #rates .offers .light .discount {
-  margin-top: 16px;
+  margin-top: 30px;
 }
 #rates .offers .serious {
   width: 320px;
   margin-left: 20px;
 }
+#rates .offers .serious .price {
+  margin-top: 114px;
+}
 #rates .offers .maximum {
   width: 330px;
   margin-left: 20px;
+}
+#rates .offers .maximum .price {
+  margin-top: 70px;
 }
 #rates .offers .title {
   text-transform: uppercase;
@@ -757,22 +763,11 @@ ul {
   font-weight: bold;
   margin: 30px 0;
 }
-#rates .offers .options {
-  margin: 0 10px 0 30px;
+#rates .offers .description {
   text-align: left;
-}
-#rates .offers .options li {
-  font-size: 0.95em;
-  line-height: 1.8em;
-  text-transform: uppercase;
-}
-#rates .offers .options li:before {
-  content: '';
-  display: inline-block;
-  width: 13px;
-  height: 11px;
-  margin-right: 5px;
-  background: url('../img/rates/item-mark.png') no-repeat 50% 0;
+  padding: 0 15px;
+  line-height: 1.4em;
+  text-indent: 15px;
 }
 #rates .offers .price {
   margin-top: 30px;
@@ -813,7 +808,7 @@ ul {
 #rates #custom-order {
   display: inline-block;
   padding: 7px 15px;
-  margin: 30px auto 0;
+  margin: 30px auto 0 -21px;
   text-transform: uppercase;
   color: #fff;
   background: #8dcbd4;

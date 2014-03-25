@@ -704,16 +704,22 @@ ul {
                 background: url('../img/rates/hit-sales.png') no-repeat;
             }
             .discount {
-                margin-top: 16px;
+                margin-top: 30px;
             }
         }
         .serious {
             width: 320px;
             margin-left: 20px;
+            .price {
+                margin-top: 114px;
+            }
         }
         .maximum {
             width: 330px;
             margin-left: 20px;
+            .price {
+                margin-top: 70px;
+            }
         }
         .title {
             text-transform: uppercase;
@@ -721,22 +727,11 @@ ul {
             font-weight: bold;
             margin: 30px 0;
         }
-        .options {
-            margin: 0 10px 0 30px;
+        .description {
             text-align: left;
-            li {
-                font-size: 0.95em;
-                line-height: 1.8em;
-                text-transform: uppercase;
-                &:before {
-                    content: '';
-                    display: inline-block;
-                    width: 13px;
-                    height: 11px;
-                    margin-right: 5px;
-                    background: url('../img/rates/item-mark.png') no-repeat 50% 0;
-                }
-            }
+            padding: 0 15px;
+            line-height: 1.4em;
+            text-indent: 15px;
         }
         .price {
             margin-top: 30px;
@@ -778,7 +773,7 @@ ul {
     #custom-order {
         display: inline-block;
         padding: 7px 15px;
-        margin: 30px auto 0;
+        margin: 30px auto 0 -21px;
         text-transform: uppercase;
         color: #fff;
         .linear-gradient(#8dcbd4, #46bbd6);
